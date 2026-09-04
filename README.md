@@ -26,7 +26,10 @@ personalSite/
 │   ├── posts.js                # Post catalog search & filter logic
 │   └── post-viewer.js          # Client-side Markdown parser (Marked.js + Highlight.js)
 ├── assets/
-│   ├── images/                 # Profile avatar and site graphics
+│   ├── images/
+│   │   ├── cover.jpg           # Hero profile showcase cover banner
+│   │   ├── profile.jpg         # Circular profile avatar
+│   │   └── avatar.svg          # Fallback avatar
 │   └── cv.pdf                  # Your CV PDF for download/preview
 ├── skillsAndTechnologiesLogos/ # Standalone SVG icons for Skills & Technologies
 │   ├── nodejs.svg
@@ -115,7 +118,8 @@ npx serve .
 
 - **Name & Bio**: Open `index.html` and update the `hero-title`, `hero-subtitle`, `hero-bio`, and footer text.
 - **Social Links**: Update the GitHub, LinkedIn, and Email URLs in the `<div class="hero-socials">` section of `index.html`.
-- **Profile Picture**: Replace `assets/images/avatar.svg` with your own picture (e.g., `assets/images/profile.jpg`).
+- **Cover Banner**: Replace `assets/images/cover.jpg` with your own wallpaper or tech graphic (recommended ratio: 16:9 or 2:1, e.g., 1200×600px or 800×400px).
+- **Profile Picture**: Replace `assets/images/profile.jpg` with your own photo (recommended ratio: 1:1 square, e.g., 400×400px). It automatically displays as a circular avatar overlapping 50% across the cover banner.
 
 ---
 
