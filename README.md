@@ -12,24 +12,45 @@ A modern, fast, responsive personal portfolio website hosted on **GitHub Pages**
 
 ```
 personalSite/
-├── index.html              # Portfolio Homepage
-├── cv.html                 # Interactive CV viewer & PDF download
-├── projects.html           # "Projects loading..." placeholder
-├── posts.html              # Blog catalog with search & tag filtering
-├── post.html               # Single post reader (renders Markdown)
-├── build-posts.js          # Helper script to scan posts/ and update posts.json
+├── index.html                  # Portfolio Homepage
+├── cv.html                     # Interactive CV viewer & PDF download
+├── projects.html               # "Projects loading..." placeholder
+├── posts.html                  # Blog catalog with search & tag filtering
+├── post.html                   # Single post reader (renders Markdown)
+├── build-posts.js              # Helper script to scan posts/ and update posts.json
+├── .nojekyll                   # Ensures GitHub Pages serves all assets directly
 ├── css/
-│   └── style.css           # Responsive design system (dark & light modes)
+│   └── style.css               # Responsive design system (dark & light modes)
 ├── js/
-│   ├── main.js             # Theme toggle & navigation controls
-│   ├── posts.js            # Post catalog search & filter logic
-│   └── post-viewer.js      # Client-side Markdown parser (Marked.js + Highlight.js)
+│   ├── main.js                 # Theme toggle & navigation controls
+│   ├── posts.js                # Post catalog search & filter logic
+│   └── post-viewer.js          # Client-side Markdown parser (Marked.js + Highlight.js)
 ├── assets/
-│   ├── images/             # Profile avatar and site graphics
-│   └── cv.pdf              # Your CV PDF for download/preview
+│   ├── images/                 # Profile avatar and site graphics
+│   └── cv.pdf                  # Your CV PDF for download/preview
+├── skillsAndTechnologiesLogos/ # Standalone SVG icons for Skills & Technologies
+│   ├── nodejs.svg
+│   ├── express.svg
+│   ├── typescript.svg
+│   ├── javascript.svg
+│   ├── docker.svg
+│   ├── kubernetes.svg
+│   ├── aws.svg
+│   ├── gcp.svg
+│   ├── azure.svg
+│   ├── linux.svg
+│   ├── mongodb.svg
+│   ├── redis.svg
+│   ├── azure-blob.svg
+│   ├── azure-tables.svg
+│   ├── react.svg
+│   ├── tailwind.svg
+│   ├── html-css.svg
+│   ├── git.svg
+│   └── vscode.svg
 └── posts/
-    ├── posts.json          # Post index manifest
-    ├── images/             # Images embedded inside blog posts
+    ├── posts.json              # Post index manifest
+    ├── images/                 # Images embedded inside blog posts
     ├── welcome-to-my-site.md
     └── markdown-and-images-guide.md
 ```
@@ -95,6 +116,52 @@ npx serve .
 - **Name & Bio**: Open `index.html` and update the `hero-title`, `hero-subtitle`, `hero-bio`, and footer text.
 - **Social Links**: Update the GitHub, LinkedIn, and Email URLs in the `<div class="hero-socials">` section of `index.html`.
 - **Profile Picture**: Replace `assets/images/avatar.svg` with your own picture (e.g., `assets/images/profile.jpg`).
+
+---
+
+## 🎨 How to Customize Skills & Technologies Logos
+
+All technology icons in the **Skills & Technologies** section are located in the `skillsAndTechnologiesLogos/` directory.
+
+### Current Logo Files
+| Technology | File Path |
+|---|---|
+| Node.js | `skillsAndTechnologiesLogos/nodejs.svg` |
+| Express | `skillsAndTechnologiesLogos/express.svg` |
+| TypeScript | `skillsAndTechnologiesLogos/typescript.svg` |
+| JavaScript | `skillsAndTechnologiesLogos/javascript.svg` |
+| Docker | `skillsAndTechnologiesLogos/docker.svg` |
+| Kubernetes | `skillsAndTechnologiesLogos/kubernetes.svg` |
+| AWS | `skillsAndTechnologiesLogos/aws.svg` |
+| Google Cloud | `skillsAndTechnologiesLogos/gcp.svg` |
+| Microsoft Azure | `skillsAndTechnologiesLogos/azure.svg` |
+| Linux | `skillsAndTechnologiesLogos/linux.svg` |
+| MongoDB | `skillsAndTechnologiesLogos/mongodb.svg` |
+| Redis | `skillsAndTechnologiesLogos/redis.svg` |
+| Azure Blob Storage | `skillsAndTechnologiesLogos/azure-blob.svg` |
+| Azure Table Storage | `skillsAndTechnologiesLogos/azure-tables.svg` |
+| MERN Stack | `skillsAndTechnologiesLogos/react.svg` |
+| Tailwind CSS | `skillsAndTechnologiesLogos/tailwind.svg` |
+| HTML & CSS | `skillsAndTechnologiesLogos/html-css.svg` |
+| Git & GitHub | `skillsAndTechnologiesLogos/git.svg` |
+| VS Code | `skillsAndTechnologiesLogos/vscode.svg` |
+
+### How to Replace or Update Any Logo
+1. **Prepare your image**:
+   - **Recommended format**: `.svg` (vector format for sharp scaling at any display density) or `.png` with transparent background.
+   - **Aspect ratio**: Square 1:1 (e.g., 48×48px up to 256×256px).
+2. **Drop your file into `skillsAndTechnologiesLogos/`**:
+   - Either overwrite the existing file with the same name (e.g. replace `skillsAndTechnologiesLogos/docker.svg`), OR
+   - Save it with a new name and update the corresponding `<img>` tag in `index.html`:
+     ```html
+     <div class="skill-card">
+       <div class="skill-card-icon">
+         <img src="skillsAndTechnologiesLogos/my-new-icon.svg" alt="Docker" class="skill-card-img" width="44" height="44" loading="lazy">
+       </div>
+       <span class="skill-card-name">Docker</span>
+       <span class="skill-card-sub">Containers</span>
+     </div>
+     ```
 
 ---
 
