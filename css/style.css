@@ -1061,6 +1061,10 @@ img {
     margin-right: auto;
   }
 
+  .hero-stats {
+    justify-content: center;
+  }
+
   .hero-buttons {
     justify-content: center;
   }
