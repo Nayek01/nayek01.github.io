@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts & Articles | Ritwik</title>
+  <meta name="description" content="All blog posts, engineering notes, and tutorials.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link">
+        <span>Ritwik</span><span class="brand-dot">.dev</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="cv.html" class="nav-link">CV</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="posts.html" class="nav-link active">Posts</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+        <button id="mobile-toggle-btn" class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="posts-header">
+        <h1 class="posts-title">Articles & Posts</h1>
+        <p class="posts-subtitle">
+          Notes, guides, and thoughts on software engineering, technology, and building things.
+        </p>
+      </div>
+
+      <!-- Controls: Search & Tag Filter -->
+      <div class="posts-controls">
+        <div class="search-box">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="posts-search" class="search-input" placeholder="Search posts by title or keyword..." aria-label="Search posts">
+        </div>
+
+        <div class="tags-filter" id="tags-filter">
+          <!-- Filter buttons rendered dynamically by js/posts.js -->
+        </div>
+      </div>
+
+      <!-- Posts List Container -->
+      <div class="posts-grid" id="posts-container">
+        <!-- Rendered by js/posts.js -->
+        <div class="empty-state">
+          <p>Loading posts...</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Ritwik. Hosted on GitHub Pages.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projects</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/posts.js"></script>
+</body>
+</html>

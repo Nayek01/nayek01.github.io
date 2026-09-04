@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#11111b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="codeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#cba6f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#89b4fa;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="400" rx="16" fill="url(#grad2)" />
+  
+  <!-- Editor Window mockup -->
+  <rect x="60" y="60" width="680" height="280" rx="12" fill="#181825" stroke="#313244" stroke-width="1.5" />
+  
+  <!-- Window dots -->
+  <circle cx="85" cy="85" r="6" fill="#f38ba8" />
+  <circle cx="105" cy="85" r="6" fill="#f9e2af" />
+  <circle cx="125" cy="85" r="6" fill="#a6e3a1" />
+  
+  <text x="155" y="90" fill="#6c7086" font-family="monospace" font-size="13">post.md — Markdown Viewer</text>
+
+  <!-- Code / Markdown Lines -->
+  <text x="90" y="140" fill="#f38ba8" font-family="monospace" font-size="16" font-weight="bold"># Building With Markdown</text>
+  <text x="90" y="175" fill="#a6adc8" font-family="monospace" font-size="14">Write posts naturally using headers, lists, code, and images:</text>
+  
+  <rect x="90" y="200" width="400" height="32" rx="6" fill="#11111b" />
+  <text x="105" y="222" fill="#89b4fa" font-family="monospace" font-size="13">![Embedded Image](posts/images/photo.png)</text>
+
+  <text x="90" y="265" fill="#a6e3a1" font-family="monospace" font-size="14">```python</text>
+  <text x="90" y="295" fill="#cba6f7" font-family="monospace" font-size="14">print("Pure static Markdown on GitHub Pages!")</text>
+  <text x="90" y="320" fill="#a6e3a1" font-family="monospace" font-size="14">```</text>
+</svg>

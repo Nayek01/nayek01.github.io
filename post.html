@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Reader | Ritwik</title>
+  <meta name="description" content="Reading article.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Highlight.js syntax highlighting theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+
+  <!-- Markdown parser and sanitizer libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link">
+        <span>Ritwik</span><span class="brand-dot">.dev</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="cv.html" class="nav-link">CV</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="posts.html" class="nav-link active">Posts</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme" title="Toggle theme"></button>
+        <button id="mobile-toggle-btn" class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Back Navigation -->
+      <a href="posts.html" class="back-link">
+        ← Back to All Posts
+      </a>
+
+      <!-- Article Header -->
+      <header class="post-viewer-header">
+        <h1 id="post-title" class="single-post-title">Loading Article...</h1>
+        <div id="post-meta" class="single-post-meta"></div>
+      </header>
+
+      <!-- Optional Cover Image -->
+      <img id="post-cover" class="post-cover-img" style="display: none;" alt="Article Cover">
+
+      <!-- Markdown Article Content -->
+      <article class="markdown-body" id="post-content">
+        <div class="empty-state">
+          <p>Fetching article content...</p>
+        </div>
+      </article>
+
+      <!-- Post Footer / Author Card -->
+      <footer class="post-footer">
+        <div class="author-card">
+          <img src="assets/images/avatar.svg" alt="Ritwik avatar" class="author-avatar">
+          <div>
+            <h4 class="author-name">Written by Ritwik</h4>
+            <p class="author-desc">
+              Software Engineer sharing insights on modern web development, engineering practices, and side projects.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+          <a href="posts.html" class="btn btn-secondary">
+            ← Back to Posts
+          </a>
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn btn-secondary" title="Scroll to top">
+            ↑ Top
+          </button>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Ritwik. Hosted on GitHub Pages.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projects</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/post-viewer.js"></script>
+</body>
+</html>

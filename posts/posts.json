@@ -1,0 +1,32 @@
+[
+  {
+    "id": "markdown-and-images-guide",
+    "filename": "markdown-and-images-guide.md",
+    "title": "How to Write Posts and Embed Images in Markdown",
+    "date": "2026-09-02",
+    "excerpt": "A comprehensive guide on writing new blog posts, organizing them into the posts folder, and embedding images cleanly.",
+    "author": "Ritwik",
+    "tags": [
+      "Guide",
+      "Markdown",
+      "Tutorial"
+    ],
+    "coverImage": "posts/images/markdown-demo.svg",
+    "readingTime": "2 min read"
+  },
+  {
+    "id": "welcome-to-my-site",
+    "filename": "welcome-to-my-site.md",
+    "title": "Welcome to My Personal Website & Portfolio",
+    "date": "2026-09-01",
+    "excerpt": "An introduction to my new personal corner on the web, what you'll find here, and what I'm building next.",
+    "author": "Ritwik",
+    "tags": [
+      "Welcome",
+      "Portfolio",
+      "Personal"
+    ],
+    "coverImage": "posts/images/welcome-banner.svg",
+    "readingTime": "2 min read"
+  }
+]
