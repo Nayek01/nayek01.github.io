@@ -57,11 +57,22 @@ function parseFrontmatter(content) {
   const minutes = Math.max(1, Math.ceil(wordCount / 200));
   data.readingTime = `${minutes} min read`;
 
-  // Fallback excerpt from first paragraph
+  // Fallback excerpt from first non-heading line
   if (!data.excerpt) {
-    const paragraphs = body.split(/\n\s*\n/).filter(p => !p.trim().startsWith('#'));
-    if (paragraphs.length > 0) {
-      data.excerpt = paragraphs[0].replace(/[#*_`]/g, '').trim().slice(0, 160) + '...';
+    const lines = body.split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (
+        trimmed &&
+        !trimmed.startsWith('#') &&
+        !trimmed.startsWith('---') &&
+        !trimmed.startsWith('***') &&
+        !trimmed.startsWith('![') &&
+        !trimmed.startsWith('>')
+      ) {
+        data.excerpt = trimmed.replace(/[#*_`$\\]/g, '').trim().slice(0, 160) + '...';
+        break;
+      }
     }
   }
 
@@ -88,11 +99,13 @@ function build() {
     posts.push({
       id: metadata.id || slug,
       filename: file,
-      title: metadata.title || slug.replace(/-/g, ' '),
+      title: metadata.title || slug.replace(/[-_]/g, ' '),
       date: metadata.date || new Date().toISOString().split('T')[0],
       excerpt: metadata.excerpt || '',
-      author: metadata.author || 'Author',
-      tags: Array.isArray(metadata.tags) ? metadata.tags : (metadata.tags ? [metadata.tags] : []),
+      author: metadata.author || 'Ritwik Nayek',
+      tags: Array.isArray(metadata.tags) && metadata.tags.length > 0
+        ? metadata.tags
+        : (metadata.tags ? [metadata.tags] : ['Engineering']),
       coverImage: metadata.coverImage || '',
       readingTime: metadata.readingTime || '2 min read'
     });
