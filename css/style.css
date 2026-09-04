@@ -1346,6 +1346,18 @@ img {
 }
 
 /* ==========================================================================
+   Section Divider (Thin, Fine Gradient Line)
+   ========================================================================== */
+.section-divider {
+  width: 50%;
+  max-width: 480px;
+  height: 1px;
+  margin: 3.5rem auto;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.45), var(--border-color), transparent);
+  border: none;
+}
+
+/* ==========================================================================
    Contact Section (Inspired by Reference Design)
    ========================================================================== */
 .contact-section {
