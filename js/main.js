@@ -110,5 +110,58 @@
 
     setupMobileNav();
     setActiveNavLink();
+    setupContactForm();
   });
+
+  // --- Contact Form Handling ---
+  function setupContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('contact-name')?.value.trim() || '';
+      const email = document.getElementById('contact-email')?.value.trim() || '';
+      const message = document.getElementById('contact-message')?.value.trim() || '';
+
+      if (!email || !message) {
+        if (formStatus) {
+          formStatus.className = 'form-status error';
+          formStatus.textContent = 'Please fill out all required fields (*).';
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      // Open email client with prefilled details
+      const subject = encodeURIComponent(`Portfolio Contact from ${name || 'Visitor'}`);
+      const body = encodeURIComponent(`Hi Ritwik,\n\n${message}\n\nFrom: ${name} (${email})`);
+      const mailtoUrl = `mailto:gameof8ballpool01234@gmail.com?subject=${subject}&body=${body}`;
+
+      setTimeout(() => {
+        window.location.href = mailtoUrl;
+
+        if (formStatus) {
+          formStatus.className = 'form-status success';
+          formStatus.innerHTML = `✓ Thank you, <strong>${name || 'friend'}</strong>! Your email draft has been opened. Looking forward to talking!`;
+        }
+
+        contactForm.reset();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submitted!';
+          setTimeout(() => {
+            submitBtn.textContent = 'Submit';
+          }, 3000);
+        }
+      }, 400);
+    });
+  }
 })();
