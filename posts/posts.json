@@ -4,12 +4,14 @@
     "filename": "electricity_qa_reference.md",
     "title": "Electrical Engineering Fundamentals: Q&A Reference Guide",
     "date": "2026-09-04",
-    "excerpt": "A: Ohm's law states that the electric current flowing through a conductor is directly proportional to the voltage across it, provided the temperature and physic...",
+    "excerpt": "A comprehensive question and answer reference covering Ohm's law, AC vs DC power systems, transformers, and circuit protection principles.",
     "author": "Ritwik Nayek",
     "tags": [
-      "Engineering"
+      "Engineering",
+      "Electrical",
+      "Reference"
     ],
-    "coverImage": "",
+    "coverImage": "posts/images/electrical-guide.svg",
     "readingTime": "6 min read"
   },
   {

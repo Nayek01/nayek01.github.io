@@ -1,5 +1,13 @@
-# Electrical Engineering Fundamentals: Q&A Reference Guide
+---
+title: "Electrical Engineering Fundamentals: Q&A Reference Guide"
+date: "2026-09-04"
+excerpt: "A comprehensive question and answer reference covering Ohm's law, AC vs DC power systems, transformers, and circuit protection principles."
+author: "Ritwik Nayek"
+tags: [Engineering, Electrical, Reference]
+coverImage: "posts/images/electrical-guide.svg"
+---
 
+# Electrical Engineering Fundamentals: Q&A Reference Guide
 ### Q1: What is Ohm's Law?
 **A:** Ohm's law states that the electric current flowing through a conductor is directly proportional to the voltage across it, provided the temperature and physical conditions remain constant.
 * **Formula:** $V = I \times R$

@@ -495,10 +495,7 @@
         </div>
       </section>
 
-      <!-- Section Divider (Thin & Fine Line) -->
-      <div class="section-divider"></div>
-
-      <!-- Latest Articles & Notes Section -->
+      <!-- Latest Articles & Notes Section (Alternating Editorial Layout) -->
       <section class="latest-posts-section" id="latest-posts">
         <div class="section-header-flex">
           <div>
@@ -514,71 +511,147 @@
           </a>
         </div>
 
-        <div class="home-posts-grid">
-          <!-- Post 1: Electrical Engineering Reference -->
-          <a href="post.html?post=electricity_qa_reference.md" class="home-post-card">
-            <div class="home-post-card-content">
-              <div class="home-post-meta">
-                <span class="home-post-date">Sep 4, 2026</span>
-                <span class="home-post-meta-dot">•</span>
-                <span class="home-post-readtime">6 min read</span>
+        <div class="home-posts-list">
+          <!-- Article 1: Electrical Engineering Fundamentals (Image Left, Text Right) -->
+          <article class="home-post-row">
+            <a href="post.html?post=electricity_qa_reference.md" class="home-post-row-cover" aria-label="Read Electrical Engineering Fundamentals">
+              <img src="posts/images/electrical-guide.svg" alt="Electrical Engineering Guide Cover" loading="lazy">
+            </a>
+            <div class="home-post-row-content">
+              <div>
+                <h3 class="home-post-row-title">
+                  <a href="post.html?post=electricity_qa_reference.md">Electrical Engineering Fundamentals: Q&amp;A Reference Guide</a>
+                </h3>
+                <p class="home-post-row-desc">
+                  A comprehensive question and answer reference covering Ohm's law, AC vs DC power systems, transformers, and circuit protection principles.
+                </p>
               </div>
-              <h3 class="home-post-title">Electrical Engineering Fundamentals: Q&A Reference Guide</h3>
-              <p class="home-post-excerpt">
-                A comprehensive question and answer reference covering Ohm's law, AC vs DC power systems, transformers, and circuit protection principles.
-              </p>
-            </div>
-            <div class="home-post-footer">
-              <div class="home-post-tags">
-                <span class="home-post-tag">#Engineering</span>
-              </div>
-              <span class="home-post-read-link">Read Article →</span>
-            </div>
-          </a>
 
-          <!-- Post 2: Markdown & Images Guide -->
-          <a href="post.html?post=markdown-and-images-guide.md" class="home-post-card">
-            <div class="home-post-card-content">
-              <div class="home-post-meta">
-                <span class="home-post-date">Sep 2, 2026</span>
-                <span class="home-post-meta-dot">•</span>
-                <span class="home-post-readtime">2 min read</span>
+              <div class="home-post-row-meta-wrapper">
+                <div class="home-post-row-meta">
+                  <span class="home-post-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Sep 4, 2026
+                  </span>
+                  <span class="home-post-meta-dot">•</span>
+                  <span class="home-post-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    6 min read
+                  </span>
+                  <span class="home-post-meta-dot">•</span>
+                  <div class="home-post-tags">
+                    <span class="home-post-tag">#Engineering</span>
+                    <span class="home-post-tag">#Electrical</span>
+                  </div>
+                </div>
+                <a href="post.html?post=electricity_qa_reference.md" class="home-post-read-link">
+                  Read Article →
+                </a>
               </div>
-              <h3 class="home-post-title">How to Write Posts and Embed Images in Markdown</h3>
-              <p class="home-post-excerpt">
-                A step-by-step tutorial on writing technical blog posts in Markdown, managing media assets, and publishing cleanly with our automated build workflow.
-              </p>
             </div>
-            <div class="home-post-footer">
-              <div class="home-post-tags">
-                <span class="home-post-tag">#Guide</span>
-                <span class="home-post-tag">#Markdown</span>
-              </div>
-              <span class="home-post-read-link">Read Article →</span>
-            </div>
-          </a>
+          </article>
 
-          <!-- Post 3: Welcome to My Site -->
-          <a href="post.html?post=welcome-to-my-site.md" class="home-post-card">
-            <div class="home-post-card-content">
-              <div class="home-post-meta">
-                <span class="home-post-date">Sep 1, 2026</span>
-                <span class="home-post-meta-dot">•</span>
-                <span class="home-post-readtime">2 min read</span>
+          <!-- Article 2: Markdown & Images Guide (Text Left, Image Right) -->
+          <article class="home-post-row">
+            <a href="post.html?post=markdown-and-images-guide.md" class="home-post-row-cover" aria-label="Read Markdown and Images Guide">
+              <img src="posts/images/markdown-demo.svg" alt="Markdown Guide Cover" loading="lazy">
+            </a>
+            <div class="home-post-row-content">
+              <div>
+                <h3 class="home-post-row-title">
+                  <a href="post.html?post=markdown-and-images-guide.md">How to Write Posts and Embed Images in Markdown</a>
+                </h3>
+                <p class="home-post-row-desc">
+                  A step-by-step tutorial on writing technical blog posts in Markdown, managing media assets, and publishing cleanly with our automated build workflow.
+                </p>
               </div>
-              <h3 class="home-post-title">Welcome to My Personal Website & Portfolio</h3>
-              <p class="home-post-excerpt">
-                An introduction to my digital garden, backend engineering journey, cloud architecture projects, and what I plan to build and share next.
-              </p>
-            </div>
-            <div class="home-post-footer">
-              <div class="home-post-tags">
-                <span class="home-post-tag">#Welcome</span>
-                <span class="home-post-tag">#Portfolio</span>
+
+              <div class="home-post-row-meta-wrapper">
+                <div class="home-post-row-meta">
+                  <span class="home-post-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Sep 2, 2026
+                  </span>
+                  <span class="home-post-meta-dot">•</span>
+                  <span class="home-post-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    2 min read
+                  </span>
+                  <span class="home-post-meta-dot">•</span>
+                  <div class="home-post-tags">
+                    <span class="home-post-tag">#Guide</span>
+                    <span class="home-post-tag">#Markdown</span>
+                  </div>
+                </div>
+                <a href="post.html?post=markdown-and-images-guide.md" class="home-post-read-link">
+                  Read Article →
+                </a>
               </div>
-              <span class="home-post-read-link">Read Article →</span>
             </div>
-          </a>
+          </article>
+
+          <!-- Article 3: Welcome to My Site (Image Left, Text Right) -->
+          <article class="home-post-row">
+            <a href="post.html?post=welcome-to-my-site.md" class="home-post-row-cover" aria-label="Read Welcome to My Personal Website">
+              <img src="posts/images/welcome-banner.svg" alt="Welcome Site Banner" loading="lazy">
+            </a>
+            <div class="home-post-row-content">
+              <div>
+                <h3 class="home-post-row-title">
+                  <a href="post.html?post=welcome-to-my-site.md">Welcome to My Personal Website &amp; Portfolio</a>
+                </h3>
+                <p class="home-post-row-desc">
+                  An introduction to my digital garden, backend engineering journey, cloud architecture projects, and what I plan to build and share next.
+                </p>
+              </div>
+
+              <div class="home-post-row-meta-wrapper">
+                <div class="home-post-row-meta">
+                  <span class="home-post-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Sep 1, 2026
+                  </span>
+                  <span class="home-post-meta-dot">•</span>
+                  <span class="home-post-meta-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    2 min read
+                  </span>
+                  <span class="home-post-meta-dot">•</span>
+                  <div class="home-post-tags">
+                    <span class="home-post-tag">#Welcome</span>
+                    <span class="home-post-tag">#Portfolio</span>
+                  </div>
+                </div>
+                <a href="post.html?post=welcome-to-my-site.md" class="home-post-read-link">
+                  Read Article →
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
