@@ -124,7 +124,18 @@
     }
 
     try {
-      const response = await fetch(`posts/${filename}`);
+      let response = await fetch(`posts/${filename}`);
+      if (!response.ok) {
+        // Fallback: in case GitHub Pages or a cache served it as .html
+        const htmlFallback = filename.replace(/\.md$/, '.html');
+        if (htmlFallback !== filename) {
+          const altResponse = await fetch(`posts/${htmlFallback}`);
+          if (altResponse.ok) {
+            response = altResponse;
+          }
+        }
+      }
+
       if (!response.ok) {
         throw new Error(`File not found (${response.status})`);
       }
