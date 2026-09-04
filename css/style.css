@@ -1346,6 +1346,140 @@ img {
 }
 
 /* ==========================================================================
+   Latest Articles / Posts Section (Home Page)
+   ========================================================================== */
+.latest-posts-section {
+  margin-top: 2rem;
+}
+
+.home-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.home-post-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-post-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.home-post-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+.home-post-card:hover::before {
+  opacity: 1;
+}
+
+.home-post-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.home-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.home-post-meta-dot {
+  opacity: 0.5;
+}
+
+.home-post-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.home-post-card:hover .home-post-title {
+  color: var(--accent);
+}
+
+.home-post-excerpt {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  gap: 0.5rem;
+}
+
+.home-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.home-post-tag {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.home-post-read-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  white-space: nowrap;
+  transition: transform 0.2s ease;
+}
+
+.home-post-card:hover .home-post-read-link {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
    Section Divider (Thin, Fine Gradient Line)
    ========================================================================== */
 .section-divider {
@@ -1361,7 +1495,7 @@ img {
    Contact Section (Inspired by Reference Design)
    ========================================================================== */
 .contact-section {
-  margin-top: 5rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
