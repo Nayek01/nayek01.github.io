@@ -367,12 +367,8 @@ img {
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45), 0 0 15px rgba(56, 189, 248, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  white-space: normal;
-  width: max-content;
-  max-width: 320px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  gap: 0.2rem;
+  white-space: nowrap;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -1873,6 +1869,10 @@ textarea.form-control {
     font-size: 1.15rem;
   }
 
+}
+
+/* Mobile Phones Only (screen width <= 600px): Wrap status tooltip text and constrain width */
+@media (max-width: 600px) {
   .status-tooltip {
     left: -20px;
     width: 250px;
