@@ -264,6 +264,180 @@ img {
   letter-spacing: -0.02em;
 }
 
+/* ==========================================================================
+   Interactive Status Indicator on First 'i' of Hero Title
+   ========================================================================== */
+.status-i-wrap {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  user-select: text;
+  -webkit-user-select: text;
+  outline: none;
+}
+
+.status-i-wrap:focus-visible .status-stem {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+.status-tittle {
+  position: absolute;
+  top: 0.12em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.28em;
+  height: 0.28em;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.status-tittle.pop {
+  transform: translateX(-50%) scale(1.45);
+}
+
+/* State 0: Green - Available */
+.status-i-wrap[data-status="0"] .status-tittle {
+  background-color: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.85), 0 0 2px #22c55e;
+  animation: statusPulseGreen 2.2s infinite ease-in-out;
+}
+
+@keyframes statusPulseGreen {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.8), 0 0 0 0 rgba(34, 197, 94, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.95), 0 0 0 5px rgba(34, 197, 94, 0);
+  }
+}
+
+/* State 1: Amber - Selectively Open */
+.status-i-wrap[data-status="1"] .status-tittle {
+  background-color: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.85), 0 0 2px #f59e0b;
+  animation: statusPulseAmber 2.2s infinite ease-in-out;
+}
+
+@keyframes statusPulseAmber {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.8), 0 0 0 0 rgba(245, 158, 11, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.95), 0 0 0 5px rgba(245, 158, 11, 0);
+  }
+}
+
+/* State 2: Red - Closed to Commitments */
+.status-i-wrap[data-status="2"] .status-tittle {
+  background-color: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.85), 0 0 2px #ef4444;
+  animation: statusPulseRed 2.5s infinite ease-in-out;
+}
+
+@keyframes statusPulseRed {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.75), 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.9), 0 0 0 4px rgba(239, 68, 68, 0);
+  }
+}
+
+/* State 3: Neutral - In Deep Work */
+.status-i-wrap[data-status="3"] .status-tittle {
+  background-color: #94a3b8;
+  box-shadow: 0 0 4px rgba(148, 163, 184, 0.5);
+  animation: none;
+}
+
+/* Tooltip Popup */
+.status-tooltip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45), 0 0 15px rgba(56, 189, 248, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s ease;
+  z-index: 100;
+  font-family: var(--font-sans);
+  letter-spacing: normal;
+  text-align: left;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.status-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--border-color) transparent transparent transparent;
+}
+
+.status-i-wrap:hover .status-tooltip,
+.status-i-wrap:focus-visible .status-tooltip,
+.status-tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.status-tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-tooltip-badge {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-tooltip-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.status-tooltip-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.status-tooltip-hint {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  margin-top: 0.3rem;
+  padding-top: 0.3rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
 .hero-subtitle {
   font-size: 1.25rem;
   color: var(--text-secondary);
@@ -1692,5 +1866,21 @@ textarea.form-control {
 
   .home-post-row-title {
     font-size: 1.15rem;
+  }
+
+  .status-tooltip {
+    left: 0;
+    transform: translateY(6px);
+  }
+
+  .status-tooltip::after {
+    left: 16px;
+    transform: none;
+  }
+
+  .status-i-wrap:hover .status-tooltip,
+  .status-i-wrap:focus-visible .status-tooltip,
+  .status-tooltip.show {
+    transform: translateY(0);
   }
 }

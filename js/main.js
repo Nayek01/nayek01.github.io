@@ -111,6 +111,7 @@
     setupMobileNav();
     setActiveNavLink();
     setupContactForm();
+    setupStatusToggle();
   });
 
   // --- Contact Form Handling ---
@@ -162,6 +163,93 @@
           }, 3000);
         }
       }, 400);
+    });
+  }
+
+  // --- Availability Status Indicator on First 'i' of Name ---
+  function setupStatusToggle() {
+    const wrap = document.getElementById('status-i-toggle');
+    const tittle = document.getElementById('status-tittle');
+    const tooltip = document.getElementById('status-tooltip');
+    const tooltipTitle = document.getElementById('status-tooltip-title');
+    const tooltipSub = document.getElementById('status-tooltip-sub');
+    const tooltipBadge = document.getElementById('status-tooltip-badge');
+
+    if (!wrap || !tittle) return;
+
+    const STATUS_KEY = 'portfolio_availability_status';
+    const AVAILABILITY_STATUSES = [
+      {
+        name: 'Available for opportunities',
+        desc: 'Open to full-time roles, contracts & high-impact projects',
+        color: '#22c55e'
+      },
+      {
+        name: 'Selectively open / Limited bandwidth',
+        desc: 'Open to select consulting & advisory discussions',
+        color: '#f59e0b'
+      },
+      {
+        name: 'Closed to new commitments',
+        desc: 'Fully engaged in existing projects; not accepting new offers',
+        color: '#ef4444'
+      },
+      {
+        name: 'In deep work mode / Focused on building',
+        desc: 'Heads-down shipping architecture; delayed replies',
+        color: '#94a3b8'
+      }
+    ];
+
+    let currentIndex = parseInt(localStorage.getItem(STATUS_KEY), 10);
+    if (isNaN(currentIndex) || currentIndex < 0 || currentIndex >= AVAILABILITY_STATUSES.length) {
+      currentIndex = 0; // Default: Available (Green)
+    }
+
+    let hideTimeout = null;
+
+    function applyStatus(index, isUserAction = false) {
+      const status = AVAILABILITY_STATUSES[index];
+      wrap.setAttribute('data-status', index);
+      wrap.setAttribute('title', `Status: ${status.name} (Click to change)`);
+      wrap.setAttribute('aria-label', `Status: ${status.name}. Click to change.`);
+
+      if (tooltipTitle) tooltipTitle.textContent = status.name;
+      if (tooltipSub) tooltipSub.textContent = status.desc;
+      if (tooltipBadge) tooltipBadge.style.backgroundColor = status.color;
+
+      localStorage.setItem(STATUS_KEY, index);
+
+      if (isUserAction) {
+        // Pop feedback animation
+        tittle.classList.add('pop');
+        setTimeout(() => tittle.classList.remove('pop'), 220);
+
+        // Flash tooltip for touch / click feedback
+        if (tooltip) {
+          tooltip.classList.add('show');
+          if (hideTimeout) clearTimeout(hideTimeout);
+          hideTimeout = setTimeout(() => {
+            tooltip.classList.remove('show');
+          }, 2400);
+        }
+      }
+    }
+
+    applyStatus(currentIndex, false);
+
+    wrap.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % AVAILABILITY_STATUSES.length;
+      applyStatus(currentIndex, true);
+    });
+
+    wrap.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        currentIndex = (currentIndex + 1) % AVAILABILITY_STATUSES.length;
+        applyStatus(currentIndex, true);
+      }
     });
   }
 })();
