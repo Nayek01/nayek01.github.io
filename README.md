@@ -35,7 +35,7 @@ personalSite/
 │   │   ├── profile.jpg         # Circular profile avatar
 │   │   └── avatar.svg          # Fallback SVG avatar
 │   └── cv.pdf                  # Your CV PDF for download/preview
-├── skillsAndTechnologiesLogos/ # Standalone SVG icons for Skills & Technologies (5 per row)
+├── skillsAndTechnologiesLogos/ # Standalone icons for Skills & Technologies (5 per row)
 │   ├── nodejs.svg
 │   ├── express.svg
 │   ├── typescript.svg
@@ -50,6 +50,7 @@ personalSite/
 │   ├── redis.svg
 │   ├── azure-blob.svg
 │   ├── azure-tables.svg
+│   ├── mern.png
 │   ├── react.svg
 │   ├── tailwind.svg
 │   ├── html-css.svg
@@ -189,9 +190,9 @@ The contact card on `index.html` provides a frictionless way for visitors to rea
 - **Profile Picture**: Located at `assets/images/profile.jpg`. Best size: 400×400px (1:1 square). It automatically renders as a circular avatar overlapping 50% across the bottom edge of the cover banner.
 
 ### 2. Skills & Technologies Icons
-- All 19 icons are stored as SVGs in `skillsAndTechnologiesLogos/`.
-- To swap an icon, replace the SVG file in `skillsAndTechnologiesLogos/` or edit the `src` attribute in `index.html`.
-- The layout is locked to **5 cards per row** on desktop screens with smooth mobile wrapping.
+- All 20 icons are stored in `skillsAndTechnologiesLogos/` (SVGs and PNG).
+- To swap an icon, replace the file in `skillsAndTechnologiesLogos/` or edit the `src` attribute in `index.html`.
+- The layout is locked to **5 cards per row** on desktop screens (4 rows of 5 cards = 20 cards) with smooth mobile wrapping.
 
 ---
 
