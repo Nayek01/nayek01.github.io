@@ -297,11 +297,11 @@
       },
       {
         title: "The Secret Lab",
-        subtitle: "Half science, half caffeine, 100% usable prototypes and toys."
+        subtitle: "Prototypes, public utilities, and mad-science experiments powered by dangerous amounts of caffeine."
       },
       {
         title: "In The Wild",
-        subtitle: "Code that escaped localhost:3000 and now roams freely on the web."
+        subtitle: "Code that escaped my localhost and now lives on the web."
       }
     ];
 
