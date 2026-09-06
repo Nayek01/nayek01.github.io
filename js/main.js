@@ -112,6 +112,7 @@
     setActiveNavLink();
     setupContactForm();
     setupStatusToggle();
+    setupProductSpotRandomizer();
   });
 
   // --- Contact Form Handling ---
@@ -251,5 +252,103 @@
         applyStatus(currentIndex, true);
       }
     });
+  }
+
+  // --- Product Spot (P-Spot) Dynamic Title Randomizer ---
+  function setupProductSpotRandomizer() {
+    const titleEl = document.getElementById('random-product-title');
+    const subEl = document.getElementById('random-product-sub');
+    const rerollBtn = document.getElementById('reroll-btn');
+    const counterBadge = document.getElementById('random-product-badge');
+    if (!titleEl || !subEl) return;
+
+    const PRODUCT_VARIATIONS = [
+      {
+        title: "Works on My Machine",
+        subtitle: "…and hopefully on yours too. Free tools, utilities, and experiments."
+      },
+      {
+        title: "Shipped",
+        subtitle: "Things pushed to production that haven't crashed yet."
+      },
+      {
+        title: "Things I Broke",
+        subtitle: "Turned accidental bugs and edge cases into actual usable utilities."
+      },
+      {
+        title: "Midnight Oil",
+        subtitle: "Caffeine-fueled tools and apps built between 1 AM and sunrise."
+      },
+      {
+        title: "Side Quests",
+        subtitle: "Main story is engineering; these are the fun distractions built along the way."
+      },
+      {
+        title: "Free Stuff",
+        subtitle: "Take them for a spin before I figure out how to add a billing page."
+      },
+      {
+        title: "Brain Dumps",
+        subtitle: "What happens when an engineer has a free weekend and zero supervision."
+      },
+      {
+        title: "Useful (Maybe)",
+        subtitle: "Built because I was too lazy to do things manually twice."
+      },
+      {
+        title: "The Secret Lab",
+        subtitle: "Half science, half caffeine, 100% usable prototypes and toys."
+      },
+      {
+        title: "In The Wild",
+        subtitle: "Code that escaped localhost:3000 and now roams freely on the web."
+      }
+    ];
+
+    let currentIndex = -1;
+
+    function getRandomIndex() {
+      let nextIndex;
+      do {
+        nextIndex = Math.floor(Math.random() * PRODUCT_VARIATIONS.length);
+      } while (nextIndex === currentIndex && PRODUCT_VARIATIONS.length > 1);
+      return nextIndex;
+    }
+
+    function applyVariation(index, animate = false) {
+      currentIndex = index;
+      const variation = PRODUCT_VARIATIONS[index];
+
+      if (animate) {
+        titleEl.classList.add('fade-swap');
+        subEl.classList.add('fade-swap');
+        setTimeout(() => {
+          titleEl.textContent = variation.title;
+          subEl.textContent = variation.subtitle;
+          if (counterBadge) {
+            counterBadge.textContent = `${index + 1}/${PRODUCT_VARIATIONS.length}`;
+          }
+          titleEl.classList.remove('fade-swap');
+          subEl.classList.remove('fade-swap');
+        }, 150);
+      } else {
+        titleEl.textContent = variation.title;
+        subEl.textContent = variation.subtitle;
+        if (counterBadge) {
+          counterBadge.textContent = `${index + 1}/${PRODUCT_VARIATIONS.length}`;
+        }
+      }
+    }
+
+    // Initial random choice on page load
+    applyVariation(getRandomIndex(), false);
+
+    if (rerollBtn) {
+      rerollBtn.addEventListener('click', () => {
+        rerollBtn.classList.add('rolling');
+        setTimeout(() => rerollBtn.classList.remove('rolling'), 450);
+        applyVariation(getRandomIndex(), true);
+      });
+    }
   }
 })();
