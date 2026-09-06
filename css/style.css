@@ -1257,14 +1257,20 @@ img {
     top: var(--header-height);
     left: 0;
     right: 0;
-    background: var(--bg-primary);
+    background: rgba(13, 17, 23, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     flex-direction: column;
     padding: 1.5rem;
     border-bottom: 1px solid var(--border-color);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-150%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
     z-index: 99;
+  }
+
+  [data-theme="light"] .nav-menu {
+    background: rgba(255, 255, 255, 0.88);
   }
 
   .nav-menu.open {
